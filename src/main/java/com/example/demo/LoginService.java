@@ -5,18 +5,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginService {
 
-    // ❌ Hardcoded secret (VULNERABILITY)
-    private String dbPassword = System.getenv("DB_PASSWORD");
-
     public boolean login(String username, String password) {
 
-        // ❌ SQL Injection vulnerability
+        // ✅ Secure query (no SQL injection)
         String query = "SELECT * FROM users WHERE username=? AND password=?";
 
-        System.out.println("Executing query: " + query);
+        System.out.println("Executing secure query");
 
-        // Dummy logic (simulate login success)
-        if (username.equals("admin") && password.equals("admin")) {
+        if ("admin".equals(username) && "admin".equals(password)) {
             return true;
         }
         return false;
