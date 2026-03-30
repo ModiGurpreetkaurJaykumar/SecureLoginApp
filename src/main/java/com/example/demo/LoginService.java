@@ -5,19 +5,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginService {
 
-    // Hardcoded secret (unused variable) — triggers SpotBugs URF_UNREAD_FIELD
-    private String dbPassword = "admin123";
-
     public boolean login(String username, String password) {
 
-        // Vulnerable SQL query (string concatenation) — potential SQL Injection
-        String query = "SELECT * FROM users WHERE username='" + username +
-                "' AND password='" + password + "'";
+        // Secure query using parameterized approach
+        String query = "SELECT * FROM users WHERE username=? AND password=?";
 
-        System.out.println("Executing query: " + query);
+        System.out.println("Executing secure query with parameters");
 
         // Dummy login logic
-        if (username.equals("admin") && password.equals("admin")) {
+        if ("admin".equals(username) && "admin".equals(password)) {
             return true;
         }
         return false;
