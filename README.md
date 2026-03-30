@@ -67,7 +67,7 @@ String query = "SELECT * FROM users WHERE username=? AND password=?";
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/JayasriDhanapal/SecureLoginApp.git
+git clone https://github.com/ModiGurpreetkaurJaykumar/SecureLoginApp.git
 cd SecureLoginApp
 ```
 
