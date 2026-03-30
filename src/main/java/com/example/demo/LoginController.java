@@ -1,6 +1,5 @@
-package com.example.demo.controller;
+import com.example.demo.LoginService;
 
-import com.example.demo.service.LoginService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
